@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+# Do these steps before we start running our test suites
+before_install:
+  - docker build -t rinorsadiku/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run rinorsadiku/docker-react npm run test -- --coverage
