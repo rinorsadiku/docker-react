@@ -10,6 +10,7 @@ RUN npm run build
 
 # Second Phase: Wiring up the server with the built project
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # Nginx has a default command that will start the nginx server automatically
